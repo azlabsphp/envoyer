@@ -11,6 +11,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
+namespace Drewlabs\Envoyer;
+
 use Drewlabs\Envoyer\Contracts\ClientSecretKeyAware;
 use Drewlabs\Envoyer\Server;
 use Drewlabs\Envoyer\Traits\HasClientSecretKey;

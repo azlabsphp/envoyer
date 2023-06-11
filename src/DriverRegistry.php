@@ -58,7 +58,7 @@ final class DriverRegistry
     public static function getInstance()
     {
         if (null === static::$__INSTANCE__) {
-            static::$__INSTANCE__ = new self();
+            static::$__INSTANCE__ = new static();
         }
 
         return static::$__INSTANCE__;

@@ -37,7 +37,7 @@ trait Messageable
      *
      * @param string|\Stringable $value
      *
-     * @return self
+     * @return static
      */
     public function content($value)
     {

@@ -33,7 +33,7 @@ class EmailAddress implements Addressable
      *
      * @throws InvalidAddressException
      *
-     * @return self
+     * @return static
      */
     public function __construct(string $email, string $name = null)
     {
@@ -57,7 +57,7 @@ class EmailAddress implements Addressable
     /**
      * Set the name attached to the email.
      *
-     * @return self
+     * @return static
      */
     public function setName(string $value)
     {

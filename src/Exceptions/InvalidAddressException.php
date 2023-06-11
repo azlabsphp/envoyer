@@ -23,7 +23,7 @@ class InvalidAddressException extends \InvalidArgumentException
      */
     public static function mail($value, $forReceiver = false, \Throwable $e = null)
     {
-        return new self(sprintf('Expect the %s email address to be a valid mail, %s given', $forReceiver ? 'to' : 'from', \gettype($value)), null !== $e ? $e->getCode() : 0, $e);
+        return new static(sprintf('Expect the %s email address to be a valid mail, %s given', $forReceiver ? 'to' : 'from', \gettype($value)), null !== $e ? $e->getCode() : 0, $e);
     }
 
     /**
@@ -33,6 +33,6 @@ class InvalidAddressException extends \InvalidArgumentException
      */
     public static function textMessage($value, \Throwable $e = null)
     {
-        return new self(sprintf('Expect phone number to be a valid string, % given', \gettype($value)), null !== $e ? $e->getCode() : 0, $e);
+        return new static(sprintf('Expect phone number to be a valid string, % given', \gettype($value)), null !== $e ? $e->getCode() : 0, $e);
     }
 }

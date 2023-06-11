@@ -27,7 +27,7 @@ final class Message implements NotificationInterface
      * @param string|null             $to
      * @param string|\Stringable|null $content
      *
-     * @return self
+     * @return static
      */
     public function __construct($to = null, $content = null)
     {
@@ -45,7 +45,7 @@ final class Message implements NotificationInterface
      * @param string|null             $to
      * @param string|\Stringable|null $content
      *
-     * @return self
+     * @return static
      */
     public static function new($to = null, $content = null)
     {
@@ -57,7 +57,7 @@ final class Message implements NotificationInterface
      *
      * @param string|Addressable|\Stringable $value
      *
-     * @return self
+     * @return static
      */
     public function from($value)
     {
@@ -71,7 +71,7 @@ final class Message implements NotificationInterface
      *
      * @param string|Addressable|\Stringable $value
      *
-     * @return self
+     * @return static
      */
     public function to($value)
     {

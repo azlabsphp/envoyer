@@ -42,7 +42,7 @@ final class Mail implements NotificationInterface, AttachmentsAware
      *
      * @param string|\Stringable|null $content
      *
-     * @return self
+     * @return static
      */
     public function __construct(string $to = null, $content = null)
     {
@@ -68,7 +68,7 @@ final class Mail implements NotificationInterface, AttachmentsAware
     }
 
     /**
-     * @return self
+     * @return static
      */
     public function bCc(string $value)
     {
@@ -80,7 +80,7 @@ final class Mail implements NotificationInterface, AttachmentsAware
     /**
      * Set the mail sender address.
      *
-     * @return self
+     * @return static
      */
     public function from(string $email, string $name = null)
     {
@@ -92,7 +92,7 @@ final class Mail implements NotificationInterface, AttachmentsAware
     /**
      * Set the mail receiver address.
      *
-     * @return self
+     * @return static
      */
     public function to(string $email)
     {
