@@ -16,17 +16,14 @@ namespace Drewlabs\Envoyer;
 use Drewlabs\Envoyer\Contracts\AttachmentsAware;
 use Drewlabs\Envoyer\Contracts\NotificationInterface;
 use Drewlabs\Envoyer\Traits\Messageable;
-use InvalidArgumentException;
 use Psr\Http\Message\StreamInterface;
-use SplFileInfo;
-use Stringable;
 
 final class Mail implements NotificationInterface, AttachmentsAware
 {
     use Messageable;
 
     /**
-     * @var resource[]|SplFileInfo[]|StreamInterface[]
+     * @var resource[]|\SplFileInfo[]|StreamInterface[]
      */
     private $attachments = [];
 
@@ -43,7 +40,7 @@ final class Mail implements NotificationInterface, AttachmentsAware
     /**
      * Creates class instance.
      *
-     * @param string|Stringable|null $content
+     * @param string|\Stringable|null $content
      *
      * @return self
      */
@@ -116,8 +113,8 @@ final class Mail implements NotificationInterface, AttachmentsAware
         if (null === $resource) {
             return;
         }
-        if (!(($resource instanceof StreamInterface) || (($resource instanceof SplFileInfo) && $resource->isFile()) || (\is_string($resource) || \is_resource($resource)))) {
-            throw new InvalidArgumentException('Expected resource type are string, \SplFileInfo or '.StreamInterface::class);
+        if (!(($resource instanceof StreamInterface) || (($resource instanceof \SplFileInfo) && $resource->isFile()) || (\is_string($resource) || \is_resource($resource)))) {
+            throw new \InvalidArgumentException('Expected resource type are string, \SplFileInfo or '.StreamInterface::class);
         }
         $this->attachments[] = $resource;
 

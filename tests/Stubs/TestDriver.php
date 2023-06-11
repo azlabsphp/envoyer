@@ -16,7 +16,6 @@ namespace Drewlabs\Envoyer\Tests\Stubs;
 use Drewlabs\Envoyer\Contracts\ClientInterface;
 use Drewlabs\Envoyer\Contracts\NotificationInterface;
 use Drewlabs\Envoyer\Contracts\NotificationResult;
-use RuntimeException;
 
 class TestDriver implements ClientInterface
 {
@@ -35,7 +34,7 @@ class TestDriver implements ClientInterface
     public function sendRequest(NotificationInterface $instance): NotificationResult
     {
         if ($this->throws) {
-            throw new RuntimeException('Test driver throws');
+            throw new \RuntimeException('Test driver throws');
         }
 
         return new Result();

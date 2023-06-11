@@ -13,10 +13,8 @@ declare(strict_types=1);
 
 namespace Drewlabs\Envoyer;
 
-use Closure;
 use Drewlabs\Envoyer\Contracts\ClientInterface;
 use Drewlabs\Envoyer\Exceptions\DriverProviderNotFoundException;
-use RuntimeException;
 
 /**
  * @method static void            flushDrivers()
@@ -31,7 +29,7 @@ final class DriverRegistry
     private static $__INSTANCE__;
 
     /**
-     * @var array<string,Closure,Closure>
+     * @var array<string,\Closure,\Closure>
      */
     private $drivers = [];
 
@@ -62,6 +60,7 @@ final class DriverRegistry
         if (null === static::$__INSTANCE__) {
             static::$__INSTANCE__ = new self();
         }
+
         return static::$__INSTANCE__;
     }
 
@@ -83,8 +82,8 @@ final class DriverRegistry
      * are static and redefining an exisiting factory using the override parameter
      * with override previously configured driver factories.
      *
-     * @param Closure|callable $factory
-     * @param Closure|callable $argsFactory
+     * @param \Closure|callable $factory
+     * @param \Closure|callable $argsFactory
      *
      * @return void
      */
@@ -108,7 +107,7 @@ final class DriverRegistry
     /**
      * Resolve custom driver instance if exists.
      *
-     * @throws RuntimeException
+     * @throws \RuntimeException
      * @throws DriverProviderNotFoundException
      */
     private function createDriver(string $name): ClientInterface

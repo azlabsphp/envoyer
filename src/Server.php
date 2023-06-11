@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Drewlabs\Envoyer;
 
 use Drewlabs\Envoyer\Contracts\ServerConfigInterface;
-use InvalidArgumentException;
 
 class Server implements ServerConfigInterface
 {
@@ -33,7 +32,7 @@ class Server implements ServerConfigInterface
      *
      * @param int $port
      *
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
     public function __construct(string $host, int $port = null)
     {

@@ -18,9 +18,6 @@ use Drewlabs\Envoyer\Contracts\NotificationInterface;
 use Drewlabs\Envoyer\DriverRegistryFacade as DriverRegistry;
 use Drewlabs\Envoyer\Exceptions\DriverProviderNotFoundException;
 
-use Generator;
-use Throwable;
-
 /**
  * **Note**
  * In order not to prevent other driver request to fail due to a given
@@ -74,7 +71,7 @@ class StackDriver implements ClientInterface
      *
      * @throws DriverProviderNotFoundException
      *
-     * @return Generator<string, mixed, mixed, void>
+     * @return \Generator<string, mixed, mixed, void>
      */
     private function sendRequests(NotificationInterface $instance)
     {
@@ -84,7 +81,7 @@ class StackDriver implements ClientInterface
             // as an object
             try {
                 yield $driver => DriverRegistry::create($driver)->sendRequest($instance);
-            } catch (Throwable $e) {
+            } catch (\Throwable $e) {
                 yield $driver => $e;
             }
         }

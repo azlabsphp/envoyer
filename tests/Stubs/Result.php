@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Drewlabs\Envoyer\Tests\Stubs;
 
-use DateTimeImmutable;
 use Drewlabs\Envoyer\Contracts\NotificationResult;
 
 class Result implements NotificationResult
@@ -29,7 +28,7 @@ class Result implements NotificationResult
     private $id;
 
     /**
-     * @var DateTimeImmutable
+     * @var \DateTimeImmutable
      */
     private $date;
 
@@ -42,7 +41,7 @@ class Result implements NotificationResult
     {
         $this->isOk = $isOk;
         $this->id = (string) (random_int(1000, 100000).time());
-        $this->date = new DateTimeImmutable();
+        $this->date = new \DateTimeImmutable();
     }
 
     public function date()

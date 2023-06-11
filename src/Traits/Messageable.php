@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Drewlabs\Envoyer\Traits;
 
 use Drewlabs\Envoyer\Contracts\Addressable;
-use Stringable;
 
 trait Messageable
 {
@@ -36,7 +35,7 @@ trait Messageable
     /**
      * Set the mail content.
      *
-     * @param string|Stringable $value
+     * @param string|\Stringable $value
      *
      * @return self
      */

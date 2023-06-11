@@ -12,12 +12,12 @@ declare(strict_types=1);
  */
 
 use Drewlabs\Envoyer\DriverRegistryFacade;
+use Drewlabs\Envoyer\Exceptions\DriverProviderNotFoundException;
 use Drewlabs\Envoyer\Message;
 use Drewlabs\Envoyer\Tests\Stubs\Result;
 use Drewlabs\Envoyer\Tests\Stubs\TestDriver;
 use Drewlabs\Envoyer\Utils\Command;
 use PHPUnit\Framework\TestCase;
-use Drewlabs\Envoyer\Exceptions\DriverProviderNotFoundException;
 
 class CommandTest extends TestCase
 {

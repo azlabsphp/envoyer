@@ -18,7 +18,6 @@ use Drewlabs\Envoyer\Contracts\NotificationResult;
 use Drewlabs\Envoyer\DriverRegistryFacade as DriverRegistry;
 use Drewlabs\Envoyer\Exceptions\DriverProviderNotFoundException;
 use Drewlabs\Envoyer\Exceptions\InvalidAddressException;
-use InvalidArgumentException;
 
 class Command
 {
@@ -54,7 +53,7 @@ class Command
      *
      * @throws DriverProviderNotFoundException
      * @throws InvalidAddressException
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      *
      * @return NotificationResult
      */

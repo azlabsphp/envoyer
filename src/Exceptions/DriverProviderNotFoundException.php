@@ -13,9 +13,7 @@ declare(strict_types=1);
 
 namespace Drewlabs\Envoyer\Exceptions;
 
-use Exception;
-
-class DriverProviderNotFoundException extends Exception
+class DriverProviderNotFoundException extends \Exception
 {
     /**
      * Creates class instance.

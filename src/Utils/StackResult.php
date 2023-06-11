@@ -13,14 +13,10 @@ declare(strict_types=1);
 
 namespace Drewlabs\Envoyer\Utils;
 
-use ArrayAccess;
-use Countable;
-use DateTimeImmutable;
 use Drewlabs\Envoyer\Contracts\NotificationResult;
 use ReturnTypeWillChange;
-use Throwable;
 
-class StackResult implements NotificationResult, Countable, ArrayAccess
+class StackResult implements NotificationResult, \Countable, \ArrayAccess
 {
     /**
      * @var array<NotificationResult>
@@ -33,7 +29,7 @@ class StackResult implements NotificationResult, Countable, ArrayAccess
     private $id;
 
     /**
-     * @var DateTimeImmutable
+     * @var \DateTimeImmutable
      */
     private $date;
 
@@ -44,7 +40,7 @@ class StackResult implements NotificationResult, Countable, ArrayAccess
     {
         $this->results = $results;
         $this->id = (string) (random_int(1000, 100000).time());
-        $this->date = new DateTimeImmutable();
+        $this->date = new \DateTimeImmutable();
     }
 
     public function date()
@@ -61,7 +57,7 @@ class StackResult implements NotificationResult, Countable, ArrayAccess
     {
         $isOk = true;
         foreach ($this->results as $result) {
-            if ($result instanceof Throwable) {
+            if ($result instanceof \Throwable) {
                 $isOk = false;
                 break;
             }
@@ -104,20 +100,20 @@ class StackResult implements NotificationResult, Countable, ArrayAccess
         return \array_key_exists($offset, $this->results);
     }
 
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->results[$offset] ?? null;
     }
 
-    #[ReturnTypeWillChange]
-    public function offsetSet(mixed $offset, mixed $value): void
+    #[\ReturnTypeWillChange]
+    public function offsetSet(mixed $offset, mixed $value)
     {
         $this->results[$offset] = $value;
     }
 
-    #[ReturnTypeWillChange]
-    public function offsetUnset(mixed $offset): void
+    #[\ReturnTypeWillChange]
+    public function offsetUnset(mixed $offset)
     {
         unset($this->results[$offset]);
     }

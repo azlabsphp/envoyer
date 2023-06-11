@@ -16,7 +16,6 @@ namespace Drewlabs\Envoyer;
 use Drewlabs\Envoyer\Contracts\Addressable;
 use Drewlabs\Envoyer\Contracts\NotificationInterface;
 use Drewlabs\Envoyer\Traits\Messageable as TraitsMessageable;
-use Stringable;
 
 final class Message implements NotificationInterface
 {
@@ -25,8 +24,8 @@ final class Message implements NotificationInterface
     /**
      * Creates class instance.
      *
-     * @param string|null            $to
-     * @param string|Stringable|null $content
+     * @param string|null             $to
+     * @param string|\Stringable|null $content
      *
      * @return self
      */
@@ -43,8 +42,8 @@ final class Message implements NotificationInterface
     /**
      * Creates new class instance.
      *
-     * @param string|null            $to
-     * @param string|Stringable|null $content
+     * @param string|null             $to
+     * @param string|\Stringable|null $content
      *
      * @return self
      */
@@ -56,7 +55,7 @@ final class Message implements NotificationInterface
     /**
      * Set the sender address.
      *
-     * @param string|Addressable|Stringable $value
+     * @param string|Addressable|\Stringable $value
      *
      * @return self
      */
@@ -70,7 +69,7 @@ final class Message implements NotificationInterface
     /**
      * Set the receiver address.
      *
-     * @param string|Addressable|Stringable $value
+     * @param string|Addressable|\Stringable $value
      *
      * @return self
      */

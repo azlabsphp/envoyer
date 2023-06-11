@@ -16,7 +16,6 @@ namespace Drewlabs\Envoyer;
 use Drewlabs\Envoyer\Contracts\ClientSecretKeyAware;
 use Drewlabs\Envoyer\Contracts\EncryptionAware;
 use Drewlabs\Envoyer\Traits\HasClientSecretKey;
-use InvalidArgumentException;
 
 class SMTPServer extends Server implements ClientSecretKeyAware, EncryptionAware
 {
@@ -30,7 +29,7 @@ class SMTPServer extends Server implements ClientSecretKeyAware, EncryptionAware
     /**
      * Creates class instance.
      *
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      *
      * @return void
      */
