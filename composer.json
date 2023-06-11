@@ -1,0 +1,39 @@
+{
+    "name": "drewlabs/envoyer",
+    "description": "Envoyer client library",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "mail",
+        "sms",
+        "notification"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Drewlabs\\Envoyer\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Drewlabs\\Envoyer\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "azandrew-sidoine",
+            "email": "asmyns.platonnas29@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.2",
+        "drewlabs/envoyer-contracts": "^0.2.0",
+        "phpunit/phpunit": "^10.2",
+        "psr/http-message": "^1.0|^2.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}
