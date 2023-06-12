@@ -15,10 +15,11 @@ namespace Drewlabs\Envoyer;
 
 use Drewlabs\Envoyer\Contracts\AttachmentsAware;
 use Drewlabs\Envoyer\Contracts\NotificationInterface;
+use Drewlabs\Envoyer\Contracts\SubjectAware;
 use Drewlabs\Envoyer\Traits\Messageable;
 use Psr\Http\Message\StreamInterface;
 
-final class Mail implements NotificationInterface, AttachmentsAware
+final class Mail implements NotificationInterface, AttachmentsAware, SubjectAware
 {
     use Messageable;
 
@@ -128,9 +129,9 @@ final class Mail implements NotificationInterface, AttachmentsAware
             $this->bcc ?? '';
     }
 
-    public function getSubject()
+    public function getSubject(): string
     {
-        return $this->subject;
+        return $this->subject ?? 'No Subject';
     }
 
     public function getAttachments(): array
