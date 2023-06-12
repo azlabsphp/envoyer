@@ -15,18 +15,19 @@ namespace Drewlabs\Envoyer\Utils;
 
 use Drewlabs\Envoyer\Contracts\NotificationInterface;
 use Drewlabs\Envoyer\Contracts\NotificationResult;
-use Drewlabs\Envoyer\DriverRegistryFacade as DriverRegistry;
 use Drewlabs\Envoyer\Exceptions\DriverProviderNotFoundException;
 use Drewlabs\Envoyer\Exceptions\InvalidAddressException;
+use Drewlabs\Envoyer\Contracts\DriverFactoryInterface;
+use InvalidArgumentException;
 
 class Command
 {
     /**
-     * Command backend driver.
+     * Command backend driver factory.
      *
-     * @var string
+     * @var DriverFactoryInterface
      */
-    private $driver;
+    private $factory;
 
     /**
      * private constructor.
@@ -37,15 +38,29 @@ class Command
 
     /**
      * Createa a command instance for the driver parameter.
-     *
-     * @return static
+     * 
+     * @param DriverFactoryInterface|string $driver 
+     * @return static 
      */
-    public static function driver(string $name)
+    public static function driver($driver)
     {
         $object = new static();
-        $object->driver = $name;
+        $factory = is_string($driver) ? new StringDriverFactory($driver) : $driver;
+        return $object->withFactory($factory);
+    }
 
-        return $object;
+    /**
+     * `immutable` factory property setter
+     * 
+     * @param DriverFactoryInterface $factory
+     * 
+     * @return static 
+     */
+    public function withFactory(DriverFactoryInterface $factory)
+    {
+        $self = clone $this;
+        $self->factory = $factory;
+        return $self;
     }
 
     /**
@@ -59,6 +74,6 @@ class Command
      */
     public function send(NotificationInterface $message)
     {
-        return DriverRegistry::create($this->driver)->sendRequest($message);
+        return $this->factory->create()->sendRequest($message);
     }
 }

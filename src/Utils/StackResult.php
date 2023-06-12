@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Drewlabs\Envoyer\Utils;
 
 use Drewlabs\Envoyer\Contracts\NotificationResult;
-use ReturnTypeWillChange;
 
 class StackResult implements NotificationResult, \Countable, \ArrayAccess
 {
