@@ -114,9 +114,11 @@ final class Mail implements NotificationInterface, AttachmentsAware, SubjectAwar
         if (null === $resource) {
             return;
         }
+
         if (!(($resource instanceof StreamInterface) || (($resource instanceof \SplFileInfo) && $resource->isFile()) || (\is_string($resource) || \is_resource($resource)))) {
-            throw new \InvalidArgumentException('Expected resource type are string, \SplFileInfo or '.StreamInterface::class);
+            throw new \InvalidArgumentException(sprintf('resource must be string, an instance of \SplFileInfo or %s, got %s', StreamInterface::class, is_object($resource) && !is_null($resource) ? get_class($resource) : gettype($resource)));
         }
+
         $this->attachments[] = $resource;
 
         return $this;
