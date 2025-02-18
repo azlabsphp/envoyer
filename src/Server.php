@@ -30,11 +30,9 @@ class Server implements ServerConfigInterface
     /**
      * Creates class instance.
      *
-     * @param int $port
-     *
      * @throws \InvalidArgumentException
      */
-    public function __construct(string $host, int $port = null)
+    public function __construct(string $host, ?int $port = null)
     {
         $this->host = $host;
         $this->port = null !== $port ? (int) $port : $port;

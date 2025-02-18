@@ -45,7 +45,7 @@ final class Mail implements NotificationInterface, AttachmentsAware, SubjectAwar
      *
      * @return static
      */
-    public function __construct(string $to = null, $content = null)
+    public function __construct(?string $to = null, $content = null)
     {
         if ($to) {
             $this->to = new EmailAddress($to);
@@ -58,12 +58,9 @@ final class Mail implements NotificationInterface, AttachmentsAware, SubjectAwar
     /**
      * Creates new class instance.
      *
-     * @param string $to
-     * @param string $content
-     *
      * @return static
      */
-    public static function new(string $to = null, string $content = null)
+    public static function new(?string $to = null, ?string $content = null)
     {
         return new static($to, $content);
     }
@@ -83,7 +80,7 @@ final class Mail implements NotificationInterface, AttachmentsAware, SubjectAwar
      *
      * @return static
      */
-    public function from(string $email, string $name = null)
+    public function from(string $email, ?string $name = null)
     {
         $this->from = new EmailAddress($email, $name);
 
@@ -116,7 +113,7 @@ final class Mail implements NotificationInterface, AttachmentsAware, SubjectAwar
         }
 
         if (!(($resource instanceof StreamInterface) || (($resource instanceof \SplFileInfo) && $resource->isFile()) || (\is_string($resource) || \is_resource($resource)))) {
-            throw new \InvalidArgumentException(sprintf('resource must be string, an instance of \SplFileInfo or %s, got %s', StreamInterface::class, is_object($resource) && !is_null($resource) ? get_class($resource) : gettype($resource)));
+            throw new \InvalidArgumentException(sprintf('resource must be string, an instance of \SplFileInfo or %s, got %s', StreamInterface::class, \is_object($resource) && null !== $resource ? $resource::class : \gettype($resource)));
         }
 
         $this->attachments[] = $resource;

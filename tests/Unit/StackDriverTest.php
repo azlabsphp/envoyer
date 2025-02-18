@@ -11,6 +11,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
+namespace Drewlabs\Envoyer\Tests\Unit;
+
 use Drewlabs\Envoyer\DriverRegistryFacade;
 use Drewlabs\Envoyer\Drivers;
 use Drewlabs\Envoyer\Message;
@@ -57,7 +59,7 @@ class StackDriverTest extends TestCase
         }, true);
     }
 
-    private function runTests(Closure $test, $errored = false)
+    private function runTests(\Closure $test, $errored = false)
     {
         DriverRegistryFacade::flushDrivers();
         DriverRegistryFacade::defineDriver('test', static function () {

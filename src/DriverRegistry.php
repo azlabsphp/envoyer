@@ -87,7 +87,7 @@ final class DriverRegistry
      *
      * @return void
      */
-    public function defineDriver(string $name, callable $factory, callable $argsFactory = null)
+    public function defineDriver(string $name, callable $factory, ?callable $argsFactory = null)
     {
         $this->drivers[$name] = [$factory, $argsFactory ?? static function () {
             return [];

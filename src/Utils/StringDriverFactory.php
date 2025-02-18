@@ -1,6 +1,5 @@
 <?php
 
-
 declare(strict_types=1);
 
 /*
@@ -26,9 +25,7 @@ class StringDriverFactory implements DriverFactoryInterface
     private $name;
 
     /**
-     * Creates class instance
-     * 
-     * @param string $name 
+     * Creates class instance.
      */
     public function __construct(string $name)
     {

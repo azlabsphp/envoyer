@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Drewlabs\Envoyer;
 
 use Drewlabs\Envoyer\Contracts\ClientSecretKeyAware;
-use Drewlabs\Envoyer\Server;
 use Drewlabs\Envoyer\Traits\HasClientSecretKey;
 
 class ClientSecretAuthServer extends Server implements ClientSecretKeyAware
@@ -28,7 +27,7 @@ class ClientSecretAuthServer extends Server implements ClientSecretKeyAware
      *
      * @return void
      */
-    public function __construct(string $host, string $client = null, string $secret = null)
+    public function __construct(string $host, ?string $client = null, ?string $secret = null)
     {
         parent::__construct($host);
 

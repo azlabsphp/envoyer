@@ -35,7 +35,7 @@ class EmailAddress implements Addressable
      *
      * @return static
      */
-    public function __construct(string $email, string $name = null)
+    public function __construct(string $email, ?string $name = null)
     {
         if (empty($email) || !filter_var($email, \FILTER_VALIDATE_EMAIL)) {
             throw InvalidAddressException::mail($email);

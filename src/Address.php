@@ -35,7 +35,7 @@ class Address implements Addressable
      *
      * @return static
      */
-    public function __construct(string $value, string $name = null)
+    public function __construct(string $value, ?string $name = null)
     {
         if (null === $value) {
             throw InvalidAddressException::textMessage($value);

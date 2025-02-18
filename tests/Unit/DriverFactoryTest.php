@@ -11,6 +11,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
+namespace Drewlabs\Envoyer\Tests\Unit;
+
 use Drewlabs\Envoyer\Contracts\ClientInterface;
 use Drewlabs\Envoyer\DriverRegistryFacade;
 use Drewlabs\Envoyer\Exceptions\DriverProviderNotFoundException;

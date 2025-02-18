@@ -33,7 +33,7 @@ class SMTPServer extends Server implements ClientSecretKeyAware, EncryptionAware
      *
      * @return void
      */
-    public function __construct(string $host, int $port = 587, string $client = null, string $secret = null)
+    public function __construct(string $host, int $port = 587, ?string $client = null, ?string $secret = null)
     {
         parent::__construct($host, $port);
 
