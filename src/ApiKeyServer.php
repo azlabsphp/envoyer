@@ -25,7 +25,7 @@ class ApiKeyServer extends Server implements ApiKeyAware
     /**
      * Creates class instance.
      *
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
     public function __construct(string $host, string $apiKey)
     {

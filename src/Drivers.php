@@ -19,7 +19,7 @@ namespace Drewlabs\Envoyer;
 class Drivers
 {
     /**
-     * Whatsapp web HTTP driver.
+     * whatsapp web HTTP driver.
      *
      * @var string
      */

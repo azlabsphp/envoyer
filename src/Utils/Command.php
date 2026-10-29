@@ -68,6 +68,7 @@ class Command
      *
      * @throws DriverProviderNotFoundException
      * @throws InvalidAddressException
+     * 
      * @throws \InvalidArgumentException
      *
      * @return NotificationResult

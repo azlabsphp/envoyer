@@ -76,9 +76,6 @@ class StackDriver implements ClientInterface
     private function sendRequests(NotificationInterface $instance)
     {
         foreach ($this->drivers as $driver) {
-            // In order not to block the other drivers when request using a given driver fails
-            // we wrap the calls in a try catch block that returns the exception to the caller
-            // as an object
             try {
                 yield $driver => DriverRegistry::create($driver)->sendRequest($instance);
             } catch (\Throwable $e) {

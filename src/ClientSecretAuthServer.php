@@ -23,7 +23,7 @@ class ClientSecretAuthServer extends Server implements ClientSecretKeyAware
     /**
      * Creates class instance.
      *
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      *
      * @return void
      */

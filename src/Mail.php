@@ -17,6 +17,7 @@ use Drewlabs\Envoyer\Contracts\AttachmentsAware;
 use Drewlabs\Envoyer\Contracts\NotificationInterface;
 use Drewlabs\Envoyer\Contracts\SubjectAware;
 use Drewlabs\Envoyer\Traits\Messageable;
+use InvalidArgumentException;
 use Psr\Http\Message\StreamInterface;
 
 final class Mail implements NotificationInterface, AttachmentsAware, SubjectAware
@@ -106,6 +107,12 @@ final class Mail implements NotificationInterface, AttachmentsAware, SubjectAwar
         return $this;
     }
 
+    /**
+     * @inheritDoc
+     * 
+     * @param mixed $resource 
+     * 
+     */
     public function attach($resource)
     {
         if (null === $resource) {
